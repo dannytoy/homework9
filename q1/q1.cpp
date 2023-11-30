@@ -71,5 +71,5 @@ int main()
     cout << "Astral Essence: " << astral << endl;
     cout << "Cosmic Dust: " << cosmic << endl;
     cout << "Element Core: " << core << endl;
-
+    return 0;
 }
