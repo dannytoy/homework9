@@ -1,3 +1,8 @@
+// CSCI 1300 Fall 2023
+// Author: Danny Toy
+// TA: Nick Cooper
+// Question 1
+
 #include <iostream>
 
 using namespace std;
