@@ -26,7 +26,10 @@ vector<int> changeVector(int num, vector<int> vec)
     }
     if(num % 3 == 0)
     {
-        vec.pop_back();
+        if(!vec.empty())
+        {
+            vec.pop_back(); 
+        }
     }
     if(num % 3 != 0 && num % 5 != 0)
     {
