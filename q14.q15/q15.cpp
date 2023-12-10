@@ -30,7 +30,7 @@ int readRatings(string fileName, User users[], int num_users_stored, int users_a
     }
 
     int user_looper = num_users_stored;
-    while(!fin.eof() || user_looper < users_arr_size)
+    while(!fin.eof() || user_looper < users_arr_size)//danny likes boys this line proves it
     {
         int number_of_ratings = 0;
         string line;
