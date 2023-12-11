@@ -30,7 +30,7 @@ int readRatings(string fileName, User users[], int num_users_stored, int users_a
     }
 
     int user_looper = num_users_stored;
-    while(!fin.eof() && user_looper < users_arr_size)
+    while(!fin.eof() || user_looper < users_arr_size)
     {
         int number_of_ratings = 0;
         string line;
@@ -74,16 +74,4 @@ int readRatings(string fileName, User users[], int num_users_stored, int users_a
     }
     fin.close();
     return users_in_system;
-}
-
-int split(string line, char comma, string* parts, int numColumns) {
-    int comma_count = 0;
-    for (int i = 0; i < line.size(); i++)
-            {
-                if (line[i] == ',')
-                {
-                    comma_count++;
-                }
-            }
-            return comma_count;
 }
