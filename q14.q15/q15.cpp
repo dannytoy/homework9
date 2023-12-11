@@ -30,7 +30,7 @@ int readRatings(string fileName, User users[], int num_users_stored, int users_a
     }
 
     int user_looper = num_users_stored;
-    while(!fin.eof() || user_looper < users_arr_size)
+    while(!fin.eof() && user_looper < users_arr_size)
     {
         int number_of_ratings = 0;
         string line;
@@ -56,16 +56,34 @@ int readRatings(string fileName, User users[], int num_users_stored, int users_a
         stringstream ss(line);
         getline(ss, temp, ',');
         temp_user.setUsername(temp);
-        for(int i = 0; i < temp_user.getNumRatings(); i++)
+        for(int i = 0; i < max_ratings; i++)
         {
             getline(ss, temp, ',');
-            temp_user.setRatingAt(i, stoi(temp));
+            if(temp == "")
+            {
+                break;
+            }
+            if(!temp_user.setRatingAt(i, stoi(temp)))
+            {
+                break;
+            }
         }
-        getline(ss, temp);
-        temp_user.setRatingAt(temp_user.getNumRatings() + 1, stoi(temp));
         users[user_looper] = temp_user;
         user_looper++;
         users_in_system++;
     }
+    fin.close();
     return users_in_system;
+}
+
+int split(string line, char comma, string* parts, int numColumns) {
+    int comma_count = 0;
+    for (int i = 0; i < line.size(); i++)
+            {
+                if (line[i] == ',')
+                {
+                    comma_count++;
+                }
+            }
+            return comma_count;
 }
